@@ -5,7 +5,13 @@
  */
 package view;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -27,8 +33,8 @@ public class Principal {
                 + "0 - Sair da aplicação\n"
                 + "3 - Entrar no facebook");
     }
-    
-    private static void escolherAcao(String resp){
+
+    private static void escolherAcao(String resp) {
         switch (resp) {
             case "1":
                 break;
@@ -46,4 +52,5 @@ public class Principal {
     private static String scanf() {
         return new Scanner(System.in).nextLine();
     }
+
 }
