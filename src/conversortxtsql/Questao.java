@@ -21,6 +21,14 @@ public class Questao {
     private int cont;
     
     public Questao(){
+        nome = "";
+        enunciado = "";
+        respostaA = "";
+        respostaB = "";
+        respostaC = "";
+        respostaD = "";
+        respostaE = "";
+        respostaCorreta = "";
         cont = 0;
     }
     
@@ -37,7 +45,7 @@ public class Questao {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        this.nome = this.nome + nome;
     }
 
     public String getEnunciado() {
@@ -45,7 +53,7 @@ public class Questao {
     }
 
     public void setEnunciado(String enunciado) {
-        this.enunciado = enunciado;
+        this.enunciado = this.enunciado + enunciado;
     }
 
     public String getRespostaA() {
@@ -53,7 +61,7 @@ public class Questao {
     }
 
     public void setRespostaA(String respostaA) {
-        this.respostaA = respostaA;
+        this.respostaA = this.respostaA + respostaA;
     }
 
     public String getRespostaB() {
@@ -61,7 +69,7 @@ public class Questao {
     }
 
     public void setRespostaB(String respostaB) {
-        this.respostaB = respostaB;
+        this.respostaB = this.respostaB + respostaB;
     }
 
     public String getRespostaC() {
@@ -69,7 +77,7 @@ public class Questao {
     }
 
     public void setRespostaC(String respostaC) {
-        this.respostaC = respostaC;
+        this.respostaC = this.respostaC + respostaC;
     }
 
     public String getRespostaD() {
@@ -77,7 +85,7 @@ public class Questao {
     }
 
     public void setRespostaD(String respostaD) {
-        this.respostaD = respostaD;
+        this.respostaD = this.respostaD + respostaD;
     }
 
     public String getRespostaE() {
@@ -85,7 +93,7 @@ public class Questao {
     }
 
     public void setRespostaE(String respostaE) {
-        this.respostaE = respostaE;
+        this.respostaE = this.respostaE + respostaE;
     }
 
     public String getRespostaCorreta() {
