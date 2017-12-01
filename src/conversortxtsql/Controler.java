@@ -38,7 +38,9 @@ public class Controler {
                 System.out.printf("\n" + linha);
                 primeiro = linha.substring(0);
                 if (primeiro.equals("$")) {
+                    System.out.println("uma questao");
                     if(emQuestao == true){
+                        System.out.println("nova questao");
                         emQuestao = false;
                         salvaSQL(questao);
                         emQuestao = true;
@@ -46,27 +48,53 @@ public class Controler {
                     questao = new Questao();
                     questao.setNome(linha);
                 } else if (primeiro.equals("#")) {
+                    System.out.println("um enunciado");
                     txtQ = false;
                     txtE = true;
                     txtR = false;
                 }else if(primeiro.equals("&")){
+                    System.out.println("uma resposta");
                     txtQ = false;
                     txtE = false;
                     txtR = true;
+                    questao.incrementaCont();
                 }else if(primeiro.equals("§")){
+                    System.out.println("a resposta correta");
                     questao.setRespostaCorreta(linha.replace("§", "").trim());
                     txtQ = false;
                     txtE = false;
                     txtR = false;
-                    emQuestao = false;
                 }
                 
                 if(txtQ == true){
-                    questao.setNome(linha.replace("#", ""));
+                    questao.setNome(linha.replace("$", ""));
+                }else if(txtR = true){
+                    if(questao.getCont() == 1){
+                        System.out.println("1 questao");
+                        questao.setRespostaA(linha.replace("&", ""));
+                    }else if(questao.getCont() == 2){
+                        System.out.println("2 questao");
+                        questao.setRespostaB(linha);
+                    }else if(questao.getCont() == 3){
+                        System.out.println("3 questao");
+                        questao.setRespostaC(linha);
+                    }else if(questao.getCont() == 4){
+                        System.out.println("4 questao");
+                        questao.setRespostaD(linha);
+                    }else if(questao.getCont() == 5){
+                        System.out.println("5 questao");
+                        questao.setRespostaE(linha);
+                    }else{
+                        System.out.println("Algo de errado em inserir questao");
+                    }
+                }else if(txtE == true){
+                    System.out.println("um enunciado add");
+                    questao.setEnunciado(linha.replace("#", ""));
                 }
                 
                 linha = lerArq.readLine(); // lê da segunda até a última linha
             }
+            salvaSQL(questao);
 
             arq.close();
         } catch (IOException e) {
