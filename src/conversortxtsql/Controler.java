@@ -55,7 +55,7 @@ public class Controler {
                         salvaSQL(questao);
                     }
                     questao = new Questao();
-                    questao.setNome(linha);
+                    questao.setNome(linha.replace("$", ""));
                 } else if (primeiro.equals("#")) {
                     System.out.println("um enunciado");
                     txtQ = false;
@@ -90,16 +90,16 @@ public class Controler {
                         questao.setRespostaA(linha.replace("&", ""));
                     }else if(questao.getCont() == 2){
                         System.out.println("2 resposta");
-                        questao.setRespostaB(linha);
+                        questao.setRespostaB(linha.replace("&", ""));
                     }else if(questao.getCont() == 3){
                         System.out.println("3 resposta");
-                        questao.setRespostaC(linha);
+                        questao.setRespostaC(linha.replace("&", ""));
                     }else if(questao.getCont() == 4){
                         System.out.println("4 resposta");
-                        questao.setRespostaD(linha);
+                        questao.setRespostaD(linha.replace("&", ""));
                     }else if(questao.getCont() == 5){
                         System.out.println("5 resposta");
-                        questao.setRespostaE(linha);
+                        questao.setRespostaE(linha.replace("&", ""));
                     }else{
                         System.out.println("Algo de errado em inserir resposta");
                     }
