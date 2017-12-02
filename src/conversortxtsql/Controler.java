@@ -48,13 +48,13 @@ public class Controler {
                     System.out.println("uma questao");
                     txtQ = true;
                     txtE = false;
-                    txtR = false;/*
+                    txtR = false;
                     if(emQuestao == true){
                         System.out.println("nova questao");
                         emQuestao = false;
                         salvaSQL(questao);
                     }
-                    questao = new Questao();*/
+                    questao = new Questao();
                     questao.setNome(linha.replace("$", ""));
                 } else if (primeiro.equals("#")) {
                     System.out.println("um enunciado");
@@ -73,10 +73,10 @@ public class Controler {
                     txtQ = false;
                     txtE = false;
                     txtR = false;
-                    //emQuestao = true;
-                    salvaSQL(questao);
-                    questao = new Questao();
-                    System.out.println("nova questao");
+                    emQuestao = true;
+                    //salvaSQL(questao);
+                    //questao = new Questao();
+                    //System.out.println("nova questao");
                 }
                 
                 if(txtQ == true){
