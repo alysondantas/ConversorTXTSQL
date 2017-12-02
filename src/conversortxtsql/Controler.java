@@ -19,6 +19,7 @@ public class Controler {
 
     public void setcaminho(String str) {
         this.caminho = str;
+        DAO.setArqSaida("povoamento.sql");
     }
 
     public void lerlinha() {
@@ -106,6 +107,6 @@ public class Controler {
     }
     
     private void salvaSQL(Questao questao){
-        
+        DAO.gerarInsert(questao);
     }
 }

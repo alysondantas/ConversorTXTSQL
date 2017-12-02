@@ -14,9 +14,12 @@ import java.util.Scanner;
  */
 public class Principal {
     static Controler controller;
+    static Scanner in;
 
     public static void main(String[] args) {
         String resp = "";
+        controller = new Controler();
+        in = new Scanner(System.in);
         do {
             exibirMenu();
             resp = scanf();
@@ -35,7 +38,7 @@ public class Principal {
     private static void escolherAcao(String resp) {
         switch (resp) {
             case "1":
-                System.out.println("Caminho: ");
+                System.out.println("Path: ");
                 String cm = scanf();
                 controller.setcaminho(cm);
                 System.out.println("Caminho adicionado: " +cm);
@@ -56,7 +59,7 @@ public class Principal {
     }
 
     private static String scanf() {
-        return new Scanner(System.in).nextLine();
+        return in.nextLine();
     }
 
 }

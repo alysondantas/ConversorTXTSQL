@@ -5,12 +5,27 @@
  */
 package conversortxtsql;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author marcos
  */
 public class DAO {
-    public static void gerarInsert(Questao q){
+
+    private static BufferedWriter buffWrite;
+    
+    public static void gerarInsert(Questao q) {
+        String query = gerarQuery(q);
+        escreverArquivo(query);
+    }
+
+    private static String gerarQuery(Questao q) {
         String qu = "INSERT INTO public.questao (idusuario,"
                 + "idprova,"
                 + "idareaconhecimento,"
@@ -21,12 +36,43 @@ public class DAO {
                 + "respostac,"
                 + "respostad,"
                 + "respostae,"
-                + "respostacorreta) VALUES('','','"+q.getEnunciado()+"',"
-                + "'OFICIAL','"+q.getRespostaA()+"',"
-                + "'"+q.getRespostaB()+"',"
-                + "'"+q.getRespostaC()+"',"
-                + "'"+q.getRespostaD()+"',"
-                + "'"+q.getRespostaE()+"',"
-                + "'"+q.getRespostaCorreta()+"');";
+                + "respostacorreta) VALUES('','','" + q.getEnunciado() + "',"
+                + "'OFICIAL','" + q.getRespostaA() + "',"
+                + "'" + q.getRespostaB() + "',"
+                + "'" + q.getRespostaC() + "',"
+                + "'" + q.getRespostaD() + "',"
+                + "'" + q.getRespostaE() + "',"
+                + "'" + q.getRespostaCorreta() + "');";
+
+        return qu;
     }
+
+    private static void escreverArquivo(String text) {
+        if(buffWrite == null){
+            System.out.println("Coloque o arquivo de saida primeiro");
+            return;
+        }
+        try {
+            buffWrite.append(text+"\n");
+        } catch (IOException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public static void setArqSaida(String arq) {
+        try {
+            buffWrite = new BufferedWriter(new FileWriter(arq));
+        } catch (IOException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void closeFile(){
+        try {
+            buffWrite.close();
+        } catch (IOException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } 
 }
