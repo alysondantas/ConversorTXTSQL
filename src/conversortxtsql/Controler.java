@@ -55,7 +55,7 @@ public class Controler {
                         salvaSQL(questao);
                     }
                     questao = new Questao();
-                    questao.setNome(linha.replace("$", ""));
+                    //questao.setNome(linha.replace("$", ""));
                 } else if (primeiro.equals("#")) {
                     System.out.println("um enunciado");
                     txtQ = false;
@@ -84,7 +84,7 @@ public class Controler {
                 }else if(txtE == true){
                     System.out.println("uma parte do enunciado add");
                     questao.setEnunciado(linha.replace("#", ""));
-                }else if(txtR = true){
+                }else if(txtR = true && !primeiro.equals("§")){
                     System.out.println("Add uma questao");
                     if(questao.getCont() == 1){
                         System.out.println("1 resposta");
@@ -113,6 +113,7 @@ public class Controler {
             salvaSQL(questao);
 
             arq.close();
+            DAO.closeFile();
         } catch (IOException e) {
             System.err.printf("Erro na abertura do arquivo: Faz isso comigo não carai\n",
                     e.getMessage());

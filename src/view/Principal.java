@@ -38,7 +38,7 @@ public class Principal {
     private static void escolherAcao(String resp) {
         switch (resp) {
             case "1":
-                System.out.println("Path: ");
+                System.out.print("Path: ");
                 String cm = scanf();
                 controller.setcaminho(cm);
                 System.out.println("Caminho adicionado: " +cm);
