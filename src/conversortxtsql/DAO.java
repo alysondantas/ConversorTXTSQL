@@ -22,6 +22,11 @@ public class DAO {
                 + "respostad,"
                 + "respostae,"
                 + "respostacorreta) VALUES('','','"+q.getEnunciado()+"',"
-                + "'OFICIAL','"+q.getRespostaA()+"','','','','','');";
+                + "'OFICIAL','"+q.getRespostaA()+"',"
+                + "'"+q.getRespostaB()+"',"
+                + "'"+q.getRespostaC()+"',"
+                + "'"+q.getRespostaD()+"',"
+                + "'"+q.getRespostaE()+"',"
+                + "'"+q.getRespostaCorreta()+"');";
     }
 }
