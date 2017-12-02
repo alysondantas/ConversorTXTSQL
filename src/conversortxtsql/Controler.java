@@ -74,6 +74,9 @@ public class Controler {
                     txtQ = false;
                     txtE = false;
                     txtR = false;
+                    emQuestao = false;
+                    salvaSQL(questao);
+                    questao = new Questao();
                 }
                 
                 if(txtQ == true){
