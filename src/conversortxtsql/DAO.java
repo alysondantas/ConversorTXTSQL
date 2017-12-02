@@ -36,7 +36,7 @@ public class DAO {
                 + "respostac,"
                 + "respostad,"
                 + "respostae,"
-                + "respostacorreta) VALUES('','','" + q.getEnunciado() + "',"
+                + "respostacorreta) VALUES(' ',' ','" + q.getEnunciado() + "',"
                 + "'OFICIAL','" + q.getRespostaA() + "',"
                 + "'" + q.getRespostaB() + "',"
                 + "'" + q.getRespostaC() + "',"
