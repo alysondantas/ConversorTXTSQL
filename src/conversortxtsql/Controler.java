@@ -67,7 +67,7 @@ public class Controler {
                     txtE = false;
                     txtR = true;
                     questao.incrementaCont();
-                }else if(primeiro.equals("§")){
+                }else if(primeiro.equals("|")){
                     System.out.println("a resposta correta deve dar erro a seguir");
                     questao.setRespostaCorreta(linha.replace("§", "").trim());
                     txtQ = false;
@@ -113,12 +113,12 @@ public class Controler {
             salvaSQL(questao);
 
             arq.close();
-            DAO.closeFile();
+            
         } catch (IOException e) {
             System.err.printf("Erro na abertura do arquivo: Faz isso comigo não carai\n",
                     e.getMessage());
         }
-
+        DAO.closeFile();
         System.out.println();
     }
     
