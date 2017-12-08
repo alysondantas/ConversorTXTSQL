@@ -26,7 +26,7 @@ public class DAO {
     }
 
     private static String gerarQuery(Questao q) {
-        String qu = "INSERT INTO public.questao (idusuario,"
+        String qu = "INSERT INTO questao (idusuario,"
                 + "idprova,"
                 + "idareaconhecimento,"
                 + "enunciado,"
@@ -36,7 +36,7 @@ public class DAO {
                 + "respostac,"
                 + "respostad,"
                 + "respostae,"
-                + "respostacorreta) VALUES(' ',' ','" + q.getEnunciado() + "',"
+                + "respostacorreta) VALUES('0','0','0','" + q.getEnunciado() + "',"
                 + "'OFICIAL','" + q.getRespostaA() + "',"
                 + "'" + q.getRespostaB() + "',"
                 + "'" + q.getRespostaC() + "',"
@@ -53,9 +53,9 @@ public class DAO {
             return;
         }
         try {
-            buffWrite.append("-------------------------------- BEGIN " + nomeQuestao+" --------------------------------\n");
+            buffWrite.append("\n");
             buffWrite.append(text + "\n");
-            buffWrite.append("-------------------------------- END " + nomeQuestao+" --------------------------------\n\n");
+            buffWrite.append("\n\n");
         } catch (IOException ex) {
             Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
         }
